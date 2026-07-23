@@ -25,6 +25,9 @@ dependencies:
   hl7.fhir.uv.ipa:
     version: 1.1.0
     uri: http://hl7.org/fhir/uv/ipa/ImplementationGuide/hl7.fhir.uv.ipa
+  hl7.fhir.uv.sdc:
+    version: 3.0.0
+    uri: http://hl7.org/fhir/uv/sdc/ImplementationGuide/hl7.fhir.uv.sdc
   hl7.fhir.uv.extensions.r4:
     version: 5.3.0
     uri: http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions
@@ -51,6 +54,7 @@ menu:
     Datatypes: Data-Types-Defined-in-this-Guide.html
     Terminology: terminology.html
     Model: StructureDefinition-IPSSectionsLM-mappings.html
+    Minimal IPS Questionnaires: Questionnaire-Minimal-IPS.html
     Examples: examples.html
   Support:
     About: About.html
@@ -234,6 +238,22 @@ resources:
     name: 'Flag - Alert of Patient Immunocompromised'
     description: 'Flag - Alert of Patient Immunocompromised'
     exampleCanonical: http://hl7.org/fhir/uv/ips/StructureDefinition/Flag-alert-uv-ips
+  QuestionnaireResponse/qr-minimal-ips-patient-complete:
+    name: 'QuestionnaireResponse - Completed Minimal IPS Patient Information'
+    description: 'Completed response to the Minimal IPS Patient Information Questionnaire'
+    exampleBoolean: true
+  QuestionnaireResponse/qr-minimal-ips-problems-complete:
+    name: 'QuestionnaireResponse - Completed Minimal IPS Problems'
+    description: 'Completed response to the Minimal IPS Problems Questionnaire'
+    exampleBoolean: true
+  QuestionnaireResponse/qr-minimal-ips-allergies-and-intolerances-complete:
+    name: 'QuestionnaireResponse - Completed Minimal IPS Allergies and Intolerances'
+    description: 'Completed response to the Minimal IPS Allergies and Intolerances Questionnaire'
+    exampleBoolean: true
+  QuestionnaireResponse/qr-minimal-ips-medication-summary-complete:
+    name: 'QuestionnaireResponse - Completed Minimal IPS Medication Summary'
+    description: 'Completed response to the Minimal IPS Medication Summary Questionnaire'
+    exampleBoolean: true
   ActorDefinition/Consumer:
     exampleBoolean: false
   ActorDefinition/Creator:

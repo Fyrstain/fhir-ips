@@ -1,0 +1,30 @@
+Instance: Questionnaire-Minimal-IPS-Problems
+InstanceOf: sdc-questionnaire-extr-defn
+Title: "Questionnaire - Minimal IPS Problems"
+Description: "Questionnaire SDC used to capture the Problems section of a minimal International Patient Summary and extract IPS-conformant Condition resources."
+Usage: #definition
+* name = "MinimalInternationalPatientSummaryProblems"
+* url = "http://hl7.org/fhir/uv/ips/Questionnaire/Questionnaire-Minimal-IPS-Problems"
+* status = #active
+* version = "0.1.0"
+* publisher = "HL7 International / Patient Care"
+* subjectType = #Patient
+
+// Required IPS Problem List section.
+* insert QuestionnaireGroup(problems, [[Problems]], true, false)
+* insert QuestionnaireGroupItem(problems-information-status, [[Information about known problems]], choice, true, false)
+* item[=].item[=].answerOption[+].valueString = "known"
+* item[=].item[=].answerOption[+].valueString = "none-known"
+* item[=].item[=].answerOption[+].valueString = "unavailable"
+* insert QuestionResourceGroup(problem, [[Known problem or condition]], false, true, Condition, http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips)
+* item[=].item[=].enableWhen.question = "problems-information-status"
+* item[=].item[=].enableWhen.operator = #=
+* item[=].item[=].enableWhen.answerString = "known"
+* insert ResourceQuestion(problem-code, [[Problem or condition]], choice, true, false, http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips#Condition.code.coding)
+* item[=].item[=].item[=].answerValueSet = Canonical(ProblemsUvIps)
+* insert ResourceQuestion(problem-clinical-status, [[Clinical status]], choice, false, false, http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips#Condition.clinicalStatus.coding)
+* item[=].item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/condition-clinical"
+* insert ResourceQuestion(problem-verification-status, [[Verification status]], choice, false, false, http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips#Condition.verificationStatus.coding)
+* item[=].item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/condition-ver-status"
+* insert ResourceQuestion(problem-onset, [[Onset date]], dateTime, false, false, http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips#Condition.onsetDateTime)
+* insert ResourceQuestion(problem-note, [[Additional information]], text, false, false, http://hl7.org/fhir/uv/ips/StructureDefinition/Condition-uv-ips#Condition.note.text)
