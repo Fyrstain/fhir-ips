@@ -18,4 +18,8 @@ Usage: #definition
 * insert RootResourceQuestion(patient-given-name, [[Given name]], string, true, true, http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips#Patient.name.given)
 * insert RootResourceQuestion(patient-birth-date, [[Date of birth]], date, true, false, http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips#Patient.birthDate)
 * insert RootResourceQuestion(patient-gender, [[Administrative gender]], choice, false, false, http://hl7.org/fhir/uv/ips/StructureDefinition/Patient-uv-ips#Patient.gender)
-* item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/administrative-gender"
+// * item[=].item[=].answerValueSet = "http://hl7.org/fhir/ValueSet/administrative-gender"
+* item[=].item[=].answerOption[+].valueCoding = http://hl7.org/fhir/administrative-gender#male "Male"
+* item[=].item[=].answerOption[+].valueCoding = http://hl7.org/fhir/administrative-gender#female "Female"
+* item[=].item[=].answerOption[+].valueCoding = http://hl7.org/fhir/administrative-gender#other "Other"
+* item[=].item[=].answerOption[+].valueCoding = http://hl7.org/fhir/administrative-gender#unknown "Unknown"
