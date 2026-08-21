@@ -207,3 +207,15 @@ INFORMATION: en/profiles.html: The html source contains the word 'SHALL' but it 
 
 # 21.  This is a known issue (previously reported by John Moehrke) that the attachment url doesn't always have to be a refrence type in a bundle (see FMG 2026/06/10 minutes - https://confluence.hl7.org/spaces/FMG/pages/453928617/2026-06-10+FMG+Agenda+Minutes).
 INFORMATION: Bundle/bundle-ips-all-sections: Bundle: Can't find 'https://fhir.example.com/DocumentReference/advance-directive-123/content' in the bundle (Bundle.entry[37].resource.content[0].attachment.url)
+
+# 22. The SDC Questionnaire rendering emits links to profile elements whose generated anchors are unavailable. These resource-specific wildcard rules avoid line and column dependencies without masking unrelated link errors.
+The link 'StructureDefinition-AllergyIntolerance-uv-ips.html%
+Hyperlink 'StructureDefinition-AllergyIntolerance-uv-ips.html%
+The link 'StructureDefinition-MedicationStatement-uv-ips.html%
+Hyperlink 'StructureDefinition-MedicationStatement-uv-ips.html%
+The link 'StructureDefinition-MedicationRequest-uv-ips.html%
+Hyperlink 'StructureDefinition-MedicationRequest-uv-ips.html%
+The link 'StructureDefinition-Patient-uv-ips.html%
+Hyperlink 'StructureDefinition-Patient-uv-ips.html%
+The link 'StructureDefinition-Condition-uv-ips.html%
+Hyperlink 'StructureDefinition-Condition-uv-ips.html%
